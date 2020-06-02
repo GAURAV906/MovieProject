@@ -1,0 +1,18 @@
+.h2{
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #f0f8ff;
+    text-align: center;
+    font-style: initial;
+    font-family: monospace;
+    font-size: xx-large;
+    justify-content: center;
+    width: '100%';
+}
+.flex-view {
+    flex: 1 1 200px;
+    display: flexbox;
+    display: flex;
+    flex-direction: row;
+}
