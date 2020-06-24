@@ -7,9 +7,9 @@ import SignIn from '../components/SignIn/SignIn';
 const BaseRouter = () =>{
     return(
         <div>
-            <Route exact path='/' strict component={MovieContainer}/>
+            <Route exact path='/' strict component={SignIn}/>
             <Route exact path='/signup/' strict  component={SignUp}/>
-            <Route exact path='/signin/' strict  component={SignIn}/>
+            <Route exact path='/home/' strict  component={MovieContainer}/>
         </div>
     )
 }

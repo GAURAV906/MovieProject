@@ -23,12 +23,12 @@ const Header=(props)=>{
     }
 
     const handleHomeClick=()=>{
-      history.push("/");
+      history.push("/home/");
       history.pop;
     }
 
     const handleSignInClick=()=>{
-      history.push("/signin/");
+      history.push("/");
       history.pop;
     }
 
@@ -67,8 +67,8 @@ const Header=(props)=>{
                   <Button color="inherit" style={{marginBottom:10}} onClick={props.authLogout}>LOGOUT</Button>
                 </div> : 
                 <div>
-                    <HomeRoundedIcon fontSize="default" style={{marginTop:10}}/>
-                    <Button color="inherit" onClick={handleHomeClick} style={{marginBottom:10}}>home</Button>
+                    {/* <HomeRoundedIcon fontSize="default" style={{marginTop:10}}/>
+                    <Button color="inherit" onClick={handleHomeClick} style={{marginBottom:10}}>home</Button> */}
                     <LockOpenTwoToneIcon fontSize="default" style={{marginTop:10}}/>
                     <Button color="inherit" onClick={handleSignInClick} style={{marginBottom:10}}>Sign-In</Button>
                     <LockTwoToneIcon fontSize="default" style={{marginTop:10}}/>

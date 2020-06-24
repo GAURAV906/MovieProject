@@ -8,7 +8,8 @@ const Pages = (props) => {
             paddingTop:25,
             justifyContent:"center", 
             bottom:90,
-            position:"fixed"           
+            position:"fixed",
+            left:600,           
         }
     }
     // const [page, setPage] = React.useState(1);

@@ -40,10 +40,12 @@ const checkAuthTimeOut =( expirationTime ) =>{
 export const authLogin=(username, password)=>{
     return dispatch =>{
         dispatch(authStart());
-        fetch('http://127.0.0.1:8000/rest-auth/login/',{method: 'POST'},
-        {
-            username : username,
-            password : password,
+        fetch('http://127.0.0.1:8000/users/login/',{
+            method: 'POST',
+            body: {
+                username : username,
+                password : password,
+            }
         })
         .then(res=>{
             const token = res.data.key;
@@ -62,12 +64,14 @@ export const authLogin=(username, password)=>{
 export const authSignUp=(username, email, password1, password2)=>{
     return dispatch =>{
         dispatch(authStart());
-        fetch('http://127.0.0.1:8000/rest-auth/registration/',{method: 'POST'},
-        {
-            username : username,
-            email: email,
-            password1 : password1,
-            password2: password2
+        fetch('http://127.0.0.1:8000/users/create/',{
+            method: 'POST',
+            body: {
+                username : username,
+                email: email,
+                password1 : password1,
+                password2: password2
+            }
         })
         .then(res=>{
             const token = res.data.key;

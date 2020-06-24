@@ -11,6 +11,7 @@ import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import Pages from '../Pages/Pages';
+import axios from 'axios';
 
 class MovieContainer extends Component{
   
@@ -35,14 +36,18 @@ class MovieContainer extends Component{
                 value = 1;
                 console.log("inside getData Before",value);
             }
-            const res = await fetch('http://127.0.0.1:8000/movies/?page='+value,{method: method});
-            const movies = await res.json();
-            console.log("This is in getData pgno",value)
-            console.log(res);
+            axios.get('http://127.0.0.1:8000/movies/?page='+value)
+            .then( res => {
+                console.log("Data from axios",res.data)
+                this.setState(
+                    this.state.movies = res.data,
+                )
+            })
+            // const movies = await res.json();
+            // console.log("This is in getData pgno",value)
+            // console.log(res);
 
-            this.setState({
-                movies,
-            });
+           
             
         } catch( exception ) {
             this.setState({
