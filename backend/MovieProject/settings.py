@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies',
+    'accounts',
     'rest_framework',
     'corsheaders',
+    'knox',   
 ]
 
 MIDDLEWARE = [
@@ -59,11 +61,9 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASS': (
+        'knox.auth.TokenAuthentication',
+    ),
 }
 
 ROOT_URLCONF = 'MovieProject.urls'

@@ -17,8 +17,7 @@ const StarRating = (props) => {
             <Rating
                 name="hover-feedback"
                 value={props.starRating}
-                onChangeActive={props.onChangeActive}
-                disabled={props.rate}
+                readOnly={true}
                 precision={1}
             />
         </div>

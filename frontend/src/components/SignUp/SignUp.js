@@ -77,7 +77,7 @@ const SignUp =(props)=>{
             </Typography>
             <form style={styles.form} noValidate>
             <Grid container spacing={2}>
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                 <TextField
                     autoComplete="fname"
                     name="firstName"
@@ -101,7 +101,7 @@ const SignUp =(props)=>{
                     onChange = {handleChange('lastName')}
                     value={values.lastName}
                 />
-                </Grid> */}
+                </Grid>
                 <Grid item xs={12}>
                 <TextField
                     variant="outlined"

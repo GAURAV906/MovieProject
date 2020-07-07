@@ -28,4 +28,5 @@ urlpatterns = [
     path(r'movies/<int:pk>/delete/', MovieViewset.as_view({'delete': 'delete_movie'})),
     path(r'movies/create/', MovieViewset.as_view({'post': 'create_movie'})),
     path(r'movies/<int:pk>/update/', MovieViewset.as_view({'post': 'update_movie'})),
+    path(r'', include('accounts.urls'))
 ]

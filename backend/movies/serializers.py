@@ -18,5 +18,4 @@ class MovieSerializer(serializers.ModelSerializer):
                 "description": value.desc,
                 "rating": value.rating
         }
-        print(data)
         return data

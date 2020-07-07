@@ -1,14 +1,16 @@
 from movies.serializers import MovieSerializer
 from movies.models import Movie
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from django.core.paginator import Paginator
 from django.http.response import JsonResponse
+from knox.auth import TokenAuthentication
 
 
 class MovieViewset(viewsets.ViewSet):
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get_all_movies(self, request):
         queryset = Movie.objects.all()
@@ -30,7 +32,7 @@ class MovieViewset(viewsets.ViewSet):
     def create_movie(self, request):
         serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(owner=self.request.user)
             return Response(serializer.data)
         return Response(serializer.errors)
 
@@ -52,7 +54,8 @@ class MovieViewset(viewsets.ViewSet):
         queryset = Movie.objects.get(pk=pk)
         serializer = MovieSerializer()       
         serializer.update(instance=queryset, validated_data=request.data)
-        return Response("The movie is updated sucessfully")
-        
 
+        queryset = Movie.objects.get(pk=pk)
+        serializer = MovieSerializer(queryset, many=False)
+        return Response(serializer.data)
         
